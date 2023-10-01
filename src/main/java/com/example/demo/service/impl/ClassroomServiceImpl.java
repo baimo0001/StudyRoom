@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.exception.exceptions.DataNotFoundException;
 import com.example.demo.mapper.ClassroomMapper;
 import com.example.demo.pojo.Classroom;
 import com.example.demo.service.ClassroomService;
@@ -16,7 +17,7 @@ public class ClassroomServiceImpl extends ServiceImpl<ClassroomMapper, Classroom
     public List<Classroom> getAllClassroomsByBuilding(Long buildingId) {
         List<Classroom> classrooms = list(Wrappers.<Classroom>lambdaQuery().eq(Classroom::getBuildingId, buildingId));
         if (classrooms.isEmpty()) {
-//            throw
+            throw new DataNotFoundException("No classrooms in building " + buildingId + " found.");
         }
         return classrooms;
     }
