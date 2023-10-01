@@ -2,26 +2,23 @@ package com.example.demo.pojo;
 
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @TableName("building")
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Building {
     @TableId
-    private Integer BuildingId;
+    private Long id;
+    @TableLogic
+    private Boolean deleted;
+    private String buildingName;
+    private String campus;
 
-    private String BuildingName;
-    private String Campus;
 
-    public Integer getBuildingId() { return BuildingId; }
-
-    public void setBuildingId(Integer buildingId) { this.BuildingId = buildingId; }
-
-    public String getBuildingName() { return BuildingName; }
-
-    public void setBuildingName(String buildingName) { this.BuildingName = buildingName; }
-
-    public String getCampus() { return Campus; }
-
-    public void setCampus(String campus) { this.Campus = campus; }
 }

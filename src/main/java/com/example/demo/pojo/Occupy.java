@@ -1,18 +1,22 @@
 package com.example.demo.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
+
+@TableName("occupy")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Occupy {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-
-    @ManyToOne
-    private Classroom classroom;
+    @TableId
+    private Long id;
+    @TableLogic
+    private Boolean deleted;
+    private Long classroomId;
+    private Boolean[][] occupy = new Boolean[7][12];
 }
