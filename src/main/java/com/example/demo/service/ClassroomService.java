@@ -8,4 +8,8 @@ import java.util.List;
 
 public interface ClassroomService extends IService<Classroom> {
     List<Classroom> getAllClassroomsByBuilding(Long buildingId);
+
+    List<Classroom> getAllOccupiedClassroomByTime(Long classroomId, String date, String time);
+
+
 }

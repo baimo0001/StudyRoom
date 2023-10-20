@@ -19,6 +19,4 @@ public class Building {
     private Boolean deleted;
     private String buildingName;
     private String campus;
-
-
 }

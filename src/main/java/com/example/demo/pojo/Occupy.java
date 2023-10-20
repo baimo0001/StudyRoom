@@ -18,5 +18,9 @@ public class Occupy {
     @TableLogic
     private Boolean deleted;
     private Long classroomId;
-    private Boolean[][] occupy = new Boolean[7][12];
+    private String classroomName;
+    private String date;
+    private String occupyTime;
+
+
 }
